@@ -13,12 +13,21 @@ import java.util.ArrayList;
 public class GruppoFactory {
     
     private static GruppoFactory singleton;
+    private String connectionString;
 
     public static GruppoFactory getInstance() {
         if (singleton == null) {
-            singleton = new GruppoFactory();
-        }
+           singleton = new GruppoFactory();
+        }      
         return singleton;
+    }
+
+    public void setConnectionString(String s){
+	this.connectionString = s;
+    }
+    
+    public String getConnectionString(){
+	return this.connectionString;
     }
     
     private ArrayList<Gruppo> listaGruppo = new ArrayList<Gruppo>();
@@ -35,8 +44,8 @@ public class GruppoFactory {
         gruppo1.setNome("COD");
         gruppo1.setDescrizione("gruppo dei giocatori di COD");
         gruppo1.setCreatore(utenteFactory.getUtenteById(0));
-        gruppo1.addUtente(utenteFactory.getUtenteById(0));
-        gruppo1.addUtente(utenteFactory.getUtenteById(2));
+        gruppo1.addUtente(0);
+        gruppo1.addUtente(2);
         gruppo1.addPost(postFactory.getPostById(0));
         gruppo1.addPost(postFactory.getPostById(1));
         
@@ -45,20 +54,20 @@ public class GruppoFactory {
         gruppo2.setNome("lavoro");
         gruppo2.setDescrizione("gruppo dei lavoratori in informatica");
         gruppo2.setCreatore(utenteFactory.getUtenteById(1));
-        gruppo2.addUtente(utenteFactory.getUtenteById(1));
-        gruppo2.addUtente(utenteFactory.getUtenteById(0));
-        gruppo2.addUtente(utenteFactory.getUtenteById(2));
+        gruppo2.addUtente(1);
+        gruppo2.addUtente(2);
+        gruppo2.addUtente(0);
         gruppo2.addPost(postFactory.getPostById(2));
         gruppo2.addPost(postFactory.getPostById(3));
         
         Gruppo gruppo3 = new Gruppo();
-        gruppo3.setId(1);
+        gruppo3.setId(2);
         gruppo3.setNome("casa");
         gruppo3.setDescrizione("FAMIGLIAAAAAAA");
         gruppo3.setCreatore(utenteFactory.getUtenteById(2));
-        gruppo3.addUtente(utenteFactory.getUtenteById(1));
-        gruppo3.addUtente(utenteFactory.getUtenteById(0));
-        gruppo3.addUtente(utenteFactory.getUtenteById(2));
+        gruppo3.addUtente(1);
+        gruppo3.addUtente(0);
+        gruppo3.addUtente(2);
         gruppo3.addPost(postFactory.getPostById(4));
         gruppo3.addPost(postFactory.getPostById(5));
         
@@ -67,6 +76,7 @@ public class GruppoFactory {
         listaGruppo.add(gruppo3);
 
     }
+    
     
     
     public Gruppo getPostById(int id) {
@@ -79,20 +89,50 @@ public class GruppoFactory {
         }
         return null;
     }
+    /*
+    funzione che permette di avere la lista dei gruppi a cui un utente partecipa
+    in ingresso prende l'utente partecipante a dei gruppi ,
+    nella lista dei gruppi di tutto il social si va cercare a quali gruppi l'utente appartiene
+    */
+    public ArrayList getListaGruppiPartecipanti(Utente utente) {
 
-    public ArrayList getPostListByCreatore(Utente utt) {
-
-        ArrayList<Gruppo> listagruppi = new ArrayList<Gruppo>();
-
+        ArrayList<Gruppo> listagruppi = new ArrayList<>();
+        
+        ArrayList<Integer> gruppo1 = new ArrayList<>();//array di interi come appoggio nella selezione della lista utenti
+        
         for (Gruppo gruppo : this.listaGruppo) {
             
-            if (gruppo.getCreatore().equals(utt)) {
+            gruppo1.addAll(gruppo.getListaUtente());
+            
+            for (Integer uttGrup : gruppo1 ){
+                
+                if (uttGrup == utente.getId()){
+
+                    listagruppi.add(gruppo);
+                    
+                }
+            }    
+            gruppo1.clear();//gruppo1 viene cancellato ad ogni ciclo
+        } 
+        
+        return listagruppi;
+    }
+    
+    public ArrayList getPostListByCreatore(Utente utente){
+        
+        ArrayList<Gruppo> listagruppi = new ArrayList<Gruppo>();
+        
+        for (Gruppo gruppo : this.listaGruppo) {
+            
+            if (gruppo.getCreatore().equals(utente)) {
                 
                 listagruppi.add(gruppo);
             }
         }
         
-        return listagruppi;
+        return listagruppi;        
+        
+    
     }
     
     

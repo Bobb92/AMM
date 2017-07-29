@@ -1,0 +1,221 @@
+
+/*** BACHECA ***/
+
+#barratitolo {
+    background-color: #00cc00;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    height: 9%;
+    text-align: left;
+    z-index: 1;
+}
+
+#titolo {
+    position: relative;
+    top: -21%;
+    width: 150px;
+}
+
+#menuNavigazione {
+    position: relative;
+    left: 192px;
+    top: -57px;
+    width: 180px;
+}
+
+#pulsanteDescrizione {
+    color: black;
+    text-decoration: none;
+    width: 60px;
+}
+
+#pulsanteprofilo{
+    color: black;
+    text-decoration: none;
+    width: 60px;
+}
+
+#utente {
+    position: relative;
+    float: right;
+    top: -182%;
+    right: 1%;
+}
+
+#pulsantelogout {
+    color: black;
+}
+
+#body {
+    background-color: #99cc99;;
+}
+
+#barralaterale {
+    background-color: #66cc66;
+    position: absolute;
+    top: 9%;
+    left: 0%;
+    z-index: 0;
+    width: 19%;
+    height: 100%;
+}
+
+#titleamici {
+    position: relative;
+    left: 24%;
+}
+
+#amici h2:before{
+    content: url("IMG/amici.png");
+}
+
+li{
+   list-style-type: none;
+}
+
+#amici li:before{
+    content: url("IMG/utente.png");
+}
+
+#titlegruppi {
+    position: relative;
+    left: 24%;
+}
+
+#gruppi h2:before{
+    content: url("IMG/gruppi.png");
+}
+
+#gruppi li:before{
+    content: url("IMG/gruppi.png");
+}
+
+#bacheca {
+    position: relative;
+    left: 20%;
+    top: 78px;
+}
+
+#fotoProfilo {
+    width: 59px;
+    position: static;
+    float: left;
+    top: -49px;
+    margin-top: 3px;
+}
+
+#nomeUtente {
+    position: relative;
+    left: 85px;
+}
+
+#post2 {
+    border: 2px solid;
+    position: relative;
+    padding-left: 8px;
+    right: 5px;
+    margin-bottom: 33px;
+    width: 75%;
+    height: auto;
+}
+
+#TestoPost{
+    font: icon;
+    font-style: oblique; 
+}
+
+#ImmPost {
+    width: 50%;
+    margin-top: 50px;
+    margin-left: 10%;
+}
+
+
+/*** LOGIN ***/
+
+#bodylogin {
+    background-color: #99cc99;
+}
+
+#titoloLogin {
+    text-align: center;
+    position: relative;
+    top: 150px;
+    left: -44px;
+}
+
+#titoloLogin h1:before{
+    content: url("IMG/Nerd.png");
+}
+
+#ScatolaGrandeinfo {
+    position: relative;
+    text-align: center;
+    top: 176px;
+    border: outset;
+    width: 33%;
+    height: 266px;
+    left: 33%;
+    background-image: url("IMG/nerdDon.png");
+    background-repeat:no-repeat;
+    background-color: rgba(156, 158, 173, 0.36);
+}
+
+#scatolaPulasnti {
+    position: relative;
+    bottom: -49px;
+}
+
+#scatolaEmail {
+    position: relative;
+    top: 20px;
+}
+
+#scatolaPassword {
+    position: relative;
+    top: 32px;
+}
+
+/*** PROFILO ***/
+
+#scatolaDati {
+    position: relative;
+    left: 21%;
+    top: 115px;
+    border: double;
+    border-color: #ff0303;
+    height: 396px;
+    width: 67%;
+    background-image: url(IMG/nerdDon.png);
+    background-repeat:no-repeat;
+}
+
+#datiProfilo {
+    position: relative;
+    left: 79px;
+    top: 24px;
+}
+
+#cognomeprof {
+    position: relative;
+    top: -20px;
+    left: 298px;
+}
+
+#fotoprof {
+    position: relative;
+    top: -20px;
+    left: 298px;
+}
+
+#confermapasswordprof {
+    position: relative;
+    top: -20px;
+    left: 298px;
+}
+
+.active{
+    background-color: black;
+}
